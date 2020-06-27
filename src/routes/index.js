@@ -1,13 +1,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import ProductsGrid from "../components/ProductsGrid"
 
 const Routes = () => (
   <Switch>
-    <Route
-      exact
-      path="/"
-      children={<div className="container">Hello world</div>}
-    />
+    <Route exact path="/" component={ProductsGrid} />
   </Switch>
 );
 

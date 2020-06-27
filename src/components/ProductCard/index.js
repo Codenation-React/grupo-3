@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ProductImage from "./ProductImage";
+import ProductImage from "../ProductImage";
 
-import "./styles.scss";
+import "./styles.css";
 
 const ProductCard = ({ children, ...rest }) => {
   const {
