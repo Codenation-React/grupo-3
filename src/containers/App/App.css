@@ -1,0 +1,42 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+html {
+  /* a cada 1rem será considera 10px */
+  font-size: 62.5%;
+}
+
+body {
+  padding-top: 56px;
+  font-family: 'Noto Sans SC', sans-serif;
+  background-color: #f9f9f9;
+  color: #212529;
+  font-size: 1.6rem;
+  font-weight: 400;
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  padding: 0 1.6rem;
+}
+
+@media screen and (min-width: 1279px) {
+  .container {
+    width: 1279px;
+  }
+}

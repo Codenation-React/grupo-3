@@ -1,0 +1,61 @@
+.header {
+  backface-visibility: hidden;
+  background-color: #ffffff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 5.5rem;
+  z-index: 9000;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.02);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 0;
+}
+
+.navbar__logo svg {
+  height: 2rem;
+  width: 11.8rem;
+}
+
+.navbar__group button:first-child {
+  margin-right: 4px;
+}
+
+.nav__group__item {
+  background-color: transparent;
+  border: none;
+  height: 2.6rem;
+  outline: none;
+}
+
+.nav__group__item svg {
+  height: 100%;
+  width: 2.6rem;
+}
+
+.badge {
+  position: absolute;
+  height: 1.8rem;
+  width: 1.8rem;
+  border-radius: 50%;
+  background-color: #cf3838;
+  right: 1.6rem;
+  top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.badge__counter {
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  top: 0;
+}
