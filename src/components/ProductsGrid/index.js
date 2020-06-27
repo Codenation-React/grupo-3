@@ -2,21 +2,25 @@ import React, { useEffect } from "react";
 import { v1 as uuid } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
 
-import { fetchCatalog } from "../../store/reducers/thunks";
-import { RootState } from "../../store/rootReducer";
+import Product from "../ProductCard";
 
-import Product from "../Product";
-
-import "./styles.scss";
+import styles from "./styles.css"
 
 const ProductsGrid = () => {
-  const dispatch = useDispatch();
-
-  const data = useSelector(state => state.products);
-
-  useEffect(() => {
-    dispatch(fetchCatalog());
-  }, [dispatch]);
+  const data = {
+    products: [
+      {
+        image: 'https://d3l7rqep7l31az.cloudfront.net/images/products/20002605_615_catalog_1.jpg?1460136912',
+        name: 'teste name',
+        on_sale: 'a',
+        discount_percentage: 0.2,
+        regular_price: 1100,
+        actual_price: 3222,
+        style: '',
+        code_color: 's',
+      },
+    ],
+  };
 
   return (
     <section className="products">

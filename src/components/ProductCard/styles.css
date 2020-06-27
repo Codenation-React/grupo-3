@@ -1,0 +1,31 @@
+.product {
+  width: 100%;
+}
+
+.product__image {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.product__image img {
+  width: 100%;
+}
+
+.product__name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.product__pricing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
