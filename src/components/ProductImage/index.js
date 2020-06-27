@@ -1,7 +1,7 @@
 import React from "react";
 
 const ProductImage = ({ children, ...rest }) => {
-  const { image, altAttr, discount } = { ...rest };
+  const { image, altAttr } = { ...rest };
 
   return (
     <figure className="product__image">

@@ -1,13 +1,12 @@
 // @format
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { v1 as uuid } from "uuid";
-import { useDispatch, useSelector } from "react-redux";
 import { productOperations } from "../../state/ducks/product";
 
 import Product from "../ProductCard";
 
-import styles from "./styles.css";
+import "./styles.css";
 
 const ProductsGrid = props => {
   const { products, fetchList } = props;

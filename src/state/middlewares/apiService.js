@@ -37,7 +37,6 @@ function handleErrors(err, action, next) {
 }
 
 function handleResponse(res, action, next) {
-  console.log(res)
   next({
     type: `${action.type}_COMPLETED`,
     payload: res,
