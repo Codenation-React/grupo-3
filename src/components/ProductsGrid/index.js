@@ -1,10 +1,10 @@
 // @format
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { v1 as uuid } from "uuid";
 import { productOperations } from "../../state/ducks/product";
+import { v1 as uuid } from "uuid";
 
-import Product from "../ProductCard";
+import ProductCard from "../ProductCard";
 
 import "./styles.css";
 
@@ -24,7 +24,12 @@ const ProductsGrid = props => {
 
         <div className="products__grid">
           {products.map(product => (
-            <Product className="products__box" key={uuid()} {...product} />
+            <ProductCard
+              className="products__box"
+              key={uuid()}
+              showLink={true}
+              product={product}
+            />
           ))}
         </div>
       </div>

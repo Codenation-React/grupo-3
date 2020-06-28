@@ -1,9 +1,11 @@
 import React from "react";
+import "./styles.css"
 
 const ProductImage = ({ children, ...rest }) => {
   const { image, altAttr } = { ...rest };
 
   return (
+    <div className="product__image--container">
     <figure className="product__image">
       {image ? (
         <img src={image} alt={`Produto ${altAttr}`} title={altAttr} />
@@ -16,6 +18,7 @@ const ProductImage = ({ children, ...rest }) => {
         />
       )}
     </figure>
+  </div>
   );
 };
 
