@@ -12,31 +12,7 @@ import { createReducer } from "../../utils";
 ]
 */
 
-const initialState = [
-  {
-    product: {
-      id: 1,
-      name: "Moon Tyrant II",
-      slug: "moon-tyrant-ii-print",
-      featured: false,
-      stock: 1,
-      price_in_cents: 800,
-      description:
-        "An original 8.5 x 11 print on cardstock. Handnumbered and signed by artist EDWIN CALLIHAN",
-      kind: "print",
-      variation: {},
-      media: [
-        {
-          id: 1,
-          type: "image",
-          url:
-            "https://assets.bigcartel.com/product_images/255514148/01B543B6-414C-4230-BBD5-B18F207DFBA6.jpeg?auto=format&fit=max&h=1000&w=1000",
-        },
-      ],
-    },
-    quantity: 12,
-  },
-];
+const initialState = [];
 
 const cartReducer = createReducer(initialState)({
   [types.ADD]: (state, action) => {

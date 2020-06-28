@@ -13,11 +13,11 @@ export default (url, method, body) => {
 };
 
 const parseStatus = (status, res) => {
-  return new Promise((res, rej) => {
+  return new Promise((resolve, reject) => {
     if (status >= 200 && status < 300) {
-      res.then(response => res(response));
+      res.then(response => resolve(response));
     } else {
-      res.then(response => rej({ status, response }));
+      res.then(response => reject({ status, response }));
     }
   });
 };

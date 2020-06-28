@@ -1,44 +1,43 @@
+// @format
 import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import { v1 as uuid } from "uuid";
-import { useDispatch, useSelector } from "react-redux";
+import { productOperations } from "../../state/ducks/product";
 
 import Product from "../ProductCard";
 
-import styles from "./styles.css"
+import "./styles.css";
 
-const ProductsGrid = () => {
-  const data = {
-    products: [
-      {
-        image: 'https://d3l7rqep7l31az.cloudfront.net/images/products/20002605_615_catalog_1.jpg?1460136912',
-        name: 'teste name',
-        on_sale: 'a',
-        discount_percentage: 0.2,
-        regular_price: 1100,
-        actual_price: 3222,
-        style: '',
-        code_color: 's',
-      },
-    ],
-  };
+const ProductsGrid = props => {
+  const { products, fetchList } = props;
+
+  useEffect(() => {
+    if (products.length === 0) {
+      fetchList();
+    }
+  });
 
   return (
     <section className="products">
-      {data.loading ? (
-        <h3>Loading...</h3>
-      ) : (
-        <div className="app__container">
-          <div className="header__title">{data.products.length} items</div>
+      <div className="app__container">
+        <div className="header__title">{products.length} items</div>
 
-          <div className="products__grid">
-            {data.products.map(product => (
-              <Product className="products__box" key={uuid()} {...product} />
-            ))}
-          </div>
+        <div className="products__grid">
+          {products.map(product => (
+            <Product className="products__box" key={uuid()} {...product} />
+          ))}
         </div>
-      )}
+      </div>
     </section>
   );
 };
 
-export default ProductsGrid;
+const mapStateToProps = state => ({
+  products: state.product.list,
+});
+
+const mapDispatchToProps = {
+  fetchList: productOperations.fetchList,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsGrid);

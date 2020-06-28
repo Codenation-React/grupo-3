@@ -1,7 +1,7 @@
 import { fetch } from "../utils";
 
 const baseUrl =
-  typeof document === "undefined" ? "http://localhost:7777/api" : "/api"; // Insert endpoint here
+  typeof document === "undefined" ? "http://5e9935925eabe7001681c856.mockapi.io/api/v1" : "http://5e9935925eabe7001681c856.mockapi.io/api/v1"; // Insert endpoint here
 
 const apiService = () => next => action => {
   const result = next(action);
