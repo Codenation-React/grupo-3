@@ -1,4 +1,5 @@
 import { fetch } from "../utils";
+import products from './mock-products'
 
 const baseUrl =
   typeof document === "undefined" ? "http://5e9935925eabe7001681c856.mockapi.io/api/v1" : "http://5e9935925eabe7001681c856.mockapi.io/api/v1"; // Insert endpoint here
@@ -16,12 +17,14 @@ const apiService = () => next => action => {
     throw new Error(`'path' not specified for async action ${action.type}`);
   }
 
-  const url = `${baseUrl}${path}`;
+  // const url = `${baseUrl}${path}`;
 
-  return fetch(url, method, body).then(
-    res => handleResponse(res, action, next),
-    err => handleErrors(err, action, next),
-  );
+  // return fetch(url, method, body).then(
+  //   res => handleResponse(res, action, next),
+  //   err => handleErrors(err, action, next),
+  // );
+
+  return handleResponse(products, action, next);
 };
 
 export default apiService;
