@@ -1,11 +1,8 @@
-.product {
-  width: 100%;
-}
-
 .product__image {
   overflow: hidden;
   width: 100%;
   position: relative;
+  margin: 0;
 }
 
 .product__image img {
@@ -28,4 +25,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.product__price {
+  font-size: 1.4rem;
+}
+
+.product__price--from {
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  color: #a7a7a7;
+  text-decoration: line-through;
 }

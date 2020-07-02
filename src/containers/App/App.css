@@ -22,7 +22,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-a {
+a,
+a:active,
+a:focus,
+a:hover {
+  color: #212529;
   text-decoration: none;
 }
 

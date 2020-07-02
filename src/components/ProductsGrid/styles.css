@@ -1,20 +1,17 @@
 .products {
-  padding-top: 1.6rem;
-  padding-bottom: 1.6rem;
+  padding-top: 1.4rem;
+}
+
+.products__quantity {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #a7a7a7;
 }
 
 .products__grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  margin-left: -0.25rem;
-  margin-right: -0.25rem;
-}
-
-@media screen and (min-width: 992px) {
-  .products__grid {
-    justify-content: left;
-  }
+  padding-top: 1.4rem;
 }
 
 .products__box {
