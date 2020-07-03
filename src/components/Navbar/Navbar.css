@@ -31,6 +31,7 @@
   border: none;
   height: 2.6rem;
   outline: none;
+  cursor: pointer;
 }
 
 .nav__group__item svg {
