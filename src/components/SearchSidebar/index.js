@@ -1,22 +1,14 @@
-import React, { useState } from "react";
-import "./index.css";
+import React, { useState } from 'react';
+import './index.css';
 
-export default function SideBar() {
-  const [isOpen, setIsOpen] = useState(true);
-  const [searchText, setSearchText] = useState("");
-
-  const toggleSideBar = () => {
-    setIsOpen(prevIsOpen => !prevIsOpen);
-  };
-
-  // Set width
-  const width = isOpen ? 375 : 0;
+export default function SideBar({ closeDrawer }) {
+  const [searchText, setSearchText] = useState('');
 
   return (
-    <div className="sidebar" style={{ width }}>
+    <div className="sidebar">
       <header className="sidebar__header">
         <div className="sidebar__header__content">
-          <span onClick={toggleSideBar}>
+          <span className="sidebar__exit" onClick={closeDrawer}>
             <i className="fas fa-arrow-left"></i>
           </span>
           <span className="sidebar__header__title">Buscar produtos</span>
