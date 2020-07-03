@@ -1,10 +1,11 @@
-import React from "react";
+import React from 'react';
 
 const ProductImage = ({ children, ...rest }) => {
-  const { image, altAttr } = { ...rest };
+  const { image, altAttr, discount } = { ...rest };
 
   return (
     <figure className="product__image">
+      {discount && <div className="product__discount">{`-${discount}`}</div>}
       {image ? (
         <img src={image} alt={`Produto ${altAttr}`} title={altAttr} />
       ) : (

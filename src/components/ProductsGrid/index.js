@@ -1,14 +1,14 @@
 // @format
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { v1 as uuid } from "uuid";
-import { productOperations } from "../../state/ducks/product";
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { v1 as uuid } from 'uuid';
+import { productOperations } from '../../state/ducks/product';
 
-import Product from "../ProductCard";
+import Product from '../ProductCard';
 
-import "./styles.css";
+import './styles.css';
 
-const ProductsGrid = props => {
+const ProductsGrid = (props) => {
   const { products, fetchList } = props;
 
   useEffect(() => {
@@ -18,21 +18,21 @@ const ProductsGrid = props => {
   });
 
   return (
-    <section className="products">
-      <div className="app__container">
-        <div className="header__title">{products.length} items</div>
+    <div className="container">
+      <section className="products">
+        <header className="products__quantity">{products.length} items</header>
 
         <div className="products__grid">
-          {products.map(product => (
+          {products.map((product) => (
             <Product className="products__box" key={uuid()} {...product} />
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   products: state.product.list,
 });
 
