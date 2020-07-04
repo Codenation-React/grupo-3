@@ -8,7 +8,7 @@ import Card from "../Card";
 
 import "./styles.css";
 
-const ProductsGrid = (props) => {
+const Catalog = (props) => {
   const { products, fetchList } = props;
 
   useEffect(() => {
@@ -40,4 +40,4 @@ const mapDispatchToProps = {
   fetchList: productOperations.fetchList,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductsGrid);
+export default connect(mapStateToProps, mapDispatchToProps)(Catalog);
