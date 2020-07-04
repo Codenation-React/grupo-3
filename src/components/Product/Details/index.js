@@ -1,10 +1,14 @@
 // @format
-import React, { useState } from 'react';
-import Card from '../Card';
-import { connect } from 'react-redux';
-import { v1 as uuid } from 'uuid';
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import Card from "../Card";
+import { connect } from "react-redux";
+import { v1 as uuid } from "uuid";
 
-import './styles.css';
+import { getProduct } from "../../../state/ducks/product/selectors";
+import { fetchList } from "../../../state/ducks/product/actions";
+
+import "./styles.css";
 
 const Controls = ({ product }) => {
   const {
@@ -15,7 +19,7 @@ const Controls = ({ product }) => {
     on_sale,
     actual_price,
   } = product;
-  const [isSelected, setSelected] = useState('');
+  const [isSelected, setSelected] = useState("");
 
   return (
     <div className="product__content">
@@ -38,20 +42,20 @@ const Controls = ({ product }) => {
         <div className="product__btn-group">
           {sizes &&
             sizes.map(
-              (size) =>
+              size =>
                 size.available && (
                   <button
                     key={uuid()}
                     className={`product__filter ${
                       isSelected === size.size
-                        ? 'product__filter--selected'
-                        : ''
+                        ? "product__filter--selected"
+                        : ""
                     }`}
                     onClick={() => setSelected(size.size)}
                   >
                     {size.size}
                   </button>
-                )
+                ),
             )}
         </div>
       </div>
@@ -62,8 +66,17 @@ const Controls = ({ product }) => {
   );
 };
 
-const Details = (props) => {
-  const { product } = props;
+const Details = props => {
+  const dispatch = useDispatch();
+  const product = useSelector(state =>
+    getProduct(state, props.match.params.style),
+  );
+
+  useEffect(() => {
+    if (product === undefined) {
+      dispatch(fetchList());
+    }
+  }, []);
 
   return (
     <div className="product__detail">
@@ -78,14 +91,4 @@ const Details = (props) => {
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
-  const product = state.product.list.find((product) => {
-    return product.style === ownProps.match.params.style;
-  });
-
-  return {
-    product,
-  };
-};
-
-export default connect(mapStateToProps, null)(Details);
+export default Details;
