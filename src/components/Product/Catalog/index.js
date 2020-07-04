@@ -8,14 +8,14 @@ import Card from "../Card";
 
 import "./styles.css";
 
-const Catalog = (props) => {
+const Catalog = props => {
   const { products, fetchList } = props;
 
   useEffect(() => {
     if (products.length === 0) {
       fetchList();
     }
-  });
+  }, []);
 
   return (
     <div className="container">
@@ -23,7 +23,7 @@ const Catalog = (props) => {
         <header className="products__quantity">{products.length} items</header>
 
         <div className="products__grid">
-          {products.map((product) => (
+          {products.map(product => (
             <Card className="products__box" key={uuid()} {...product} />
           ))}
         </div>
@@ -32,7 +32,7 @@ const Catalog = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   products: state.product.list,
 });
 

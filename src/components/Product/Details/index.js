@@ -25,25 +25,36 @@ const Controls = ({ product }) => {
         <p className="product__sizes__title">Escolha o tamanho:</p>
         <div className="product__btn-group">
           {sizes &&
-            sizes.map((size) => (
-              <button
-                className={`product__filter ${
-                  isSelected === size.size ? "product__filter--selected" : ""
-                }`}
-                onClick={() => setSelected(size.size)}
-              >
-                {size.size}
-              </button>
-            ))}
+            sizes.map(
+              size =>
+                size.available && (
+                  <button
+                    key={uuid()}
+                    className={`product__filter ${
+                      isSelected === size.size
+                        ? "product__filter--selected"
+                        : ""
+                    }`}
+                    onClick={() => setSelected(size.size)}
+                  >
+                    {size.size}
+                  </button>
+                ),
+            )}
         </div>
+      </div>
+      <div className="product__actions">
+        <button className="product__add-to-cart">Adicionar à Sacola</button>
       </div>
     </div>
   );
 };
 
-const Details = (props) => {
+const Details = props => {
   const { state, product } = props;
   const style = props.match.params.style;
+
+  console.log(product);
 
   return (
     <div>
@@ -54,7 +65,7 @@ const Details = (props) => {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  const product = state.product.list.filter((product) => {
+  const product = state.product.list.filter(product => {
     return product.style === ownProps.match.params.style;
   });
 
