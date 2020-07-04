@@ -164,6 +164,6 @@ export default [
       { available: true, size: 'G', sku: '5723_1000058_0_G' },
       { available: true, size: 'GG', sku: '5723_1000058_0_GG' },
     ],
-    style: '20002570',
+    style: '20302570',
   },
 ];

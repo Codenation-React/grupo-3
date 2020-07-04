@@ -14,29 +14,34 @@ const ProductCard = ({ children, ...rest }) => {
     regular_price,
     actual_price,
     style,
-    code_color,
+    showPrices = true,
   } = { ...rest };
 
   return (
     <article className={className} key={style}>
-      <Link to={`/produto/${name}/${code_color}`}>
+      <Link to={`/produto/${style}`}>
         <ProductImage
           image={image}
           onSale={on_sale}
           discount={discount_percentage}
           altAttr={name}
         />
-        <h3 className="product__name">{name}</h3>
-        <div className="product__pricing">
-          {on_sale && (
-            <span className="product__price product__price--from">
-              {regular_price}
-            </span>
-          )}
-          <span className="product__price product__price--to">
-            {actual_price}
-          </span>
-        </div>
+
+        {showPrices && (
+          <>
+            <h3 className="product__name">{name}</h3>
+            <div className="product__pricing">
+              {on_sale && (
+                <span className="product__price product__price--from">
+                  {regular_price}
+                </span>
+              )}
+              <span className="product__price product__price--to">
+                {actual_price}
+              </span>
+            </div>
+          </>
+        )}
       </Link>
     </article>
   );
