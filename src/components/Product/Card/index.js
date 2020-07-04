@@ -19,7 +19,7 @@ const ProductCard = ({ children, ...rest }) => {
 
   return (
     <article className={className} key={style}>
-      <Link to={`/produto/${name}/${code_color}`}>
+      <Link to={`/produto/${style}`}>
         <ProductImage
           image={image}
           onSale={on_sale}
