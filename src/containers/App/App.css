@@ -4,12 +4,10 @@
 *:after,
 *:before {
   box-sizing: border-box;
+  backface-visibility: hidden;
 }
 
-html {
-  /* a cada 1rem será considera 10px */
-  font-size: 62.5%;
-}
+html { font-size: 62.5%; }
 
 body {
   padding-top: 56px;
@@ -30,9 +28,7 @@ a:hover {
   text-decoration: none;
 }
 
-li {
-  list-style: none;
-}
+li { list-style: none; }
 
 .container {
   margin: 0 auto;

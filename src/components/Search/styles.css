@@ -17,7 +17,7 @@
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.02);
   width: 100%;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 
