@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import Routes from '../../routes';
 import Navbar from '../../components/Navbar';
-import SearchSidebar from '../../components/SearchSidebar';
+import Search from '../../components/Search';
 
 import './App.css';
 
@@ -23,7 +23,7 @@ const App = () => {
       <div className={`app ${isDrawerVisible ? 'drawer-is-visible' : ''}`}>
         <Navbar drawerClick={handleDrawerClick} />
         <Routes />
-        {isDrawerVisible && <SearchSidebar closeDrawer={handleCloseDrawer} />}
+        {isDrawerVisible && <Search closeDrawer={handleCloseDrawer} />}
       </div>
     </Router>
   );

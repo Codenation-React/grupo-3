@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import './index.css';
+import React from 'react';
+import './styles.css';
 
 export default function SideBar({ closeDrawer }) {
-  const [searchText, setSearchText] = useState('');
+  // const [searchText, setSearchText] = useState('');
 
   return (
     <div className="sidebar">
