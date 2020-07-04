@@ -9,7 +9,7 @@ import { ReactComponent as BagSvg } from '../../assets/img/shop-bag.svg';
 import { ReactComponent as SearchSvg } from '../../assets/img/search.svg';
 import './Navbar.css';
 
-const Navbar = ({ drawerClick }) => {
+const Navbar = ({ searchDrawerClick, cartDrawerClick }) => {
   const cartQuantity = useSelector(getCartQuantity);
 
   return (
@@ -24,12 +24,12 @@ const Navbar = ({ drawerClick }) => {
             <button
               type="button"
               className="nav__group__item"
-              onClick={drawerClick}
+              onClick={searchDrawerClick}
             >
               <SearchSvg />
             </button>
 
-            <button type="button" className="nav__group__item">
+            <button onClick={cartDrawerClick}type="button" className="nav__group__item">
               <BagSvg />
               <span className="badge">
                 <sup className="badge__counter">{cartQuantity}</sup>

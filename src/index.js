@@ -12,9 +12,7 @@ const reduxStore = configureStore(window.REDUX_INITIAL_DATA);
 ReactDOM.render(
   <ReduxProvider store={reduxStore}>
     <React.StrictMode>
-      <Router>
-        <App />
-      </Router>
+      <App />
     </React.StrictMode>
   </ReduxProvider>,
   document.getElementById("root"),

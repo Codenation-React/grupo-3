@@ -1,29 +1,48 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+// @format
+import React, { useState } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 
-import Routes from '../../routes';
-import Navbar from '../../components/Navbar';
-import Search from '../../components/Search';
+import Routes from "../../routes";
+import Navbar from "../../components/Navbar";
+import Search from "../../components/Drawers/Search";
+import Cart from "../../components/Drawers/Cart";
 
-import './App.css';
+import "./App.css";
 
 const App = () => {
-  const [isDrawerVisible, setIsDrawerVisible] = useState(false);
+  const [isSearchDrawerVisible, setIsSearchDrawerVisible] = useState(false);
+  const [isCartDrawerVisible, setIsCartDrawerVisible] = useState(false);
 
-  const handleDrawerClick = () => {
-    setIsDrawerVisible((prevState) => !prevState);
+  const handleSearchDrawerClick = () => {
+    setIsSearchDrawerVisible(prevState => !prevState);
   };
 
-  const handleCloseDrawer = () => {
-    setIsDrawerVisible(false);
+  const handleCloseSearchDrawer = () => {
+    setIsSearchDrawerVisible(false);
+  };
+
+  const handleCartDrawerClick = () => {
+    setIsCartDrawerVisible(prevState => !prevState);
+  };
+
+  const handleCloseCartDrawer = () => {
+    setIsCartDrawerVisible(false);
   };
 
   return (
     <Router>
-      <div className={`app ${isDrawerVisible ? 'drawer-is-visible' : ''}`}>
-        <Navbar drawerClick={handleDrawerClick} />
+      <div
+        className={`app ${isSearchDrawerVisible ? "drawer-is-visible" : ""}`}
+      >
+        <Navbar
+          searchDrawerClick={handleSearchDrawerClick}
+          cartDrawerClick={handleCartDrawerClick}
+        />
         <Routes />
-        {isDrawerVisible && <Search closeDrawer={handleCloseDrawer} />}
+        {isSearchDrawerVisible && (
+          <Search closeDrawer={handleCloseSearchDrawer} />
+        )}
+        {isCartDrawerVisible && <Cart closeDrawer={handleCloseCartDrawer} />}
       </div>
     </Router>
   );
