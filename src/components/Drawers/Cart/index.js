@@ -11,18 +11,10 @@ export default function SideBar({ closeDrawer }) {
           <span className="sidebar__exit" onClick={closeDrawer}>
             <i className="fas fa-arrow-left"></i>
           </span>
-          <span className="sidebar__header__title">Buscar produtos</span>
+          <span className="sidebar__header__title">Sacola (n)</span>
         </div>
       </header>
 
-      <div className="sidebar__search">
-        <input
-          className="sidebar__search__input"
-          type="text"
-          name="text-search"
-          placeholder="Buscar por produto..."
-        />
-      </div>
       <div className="sidebar__product-list">
         <span className="sidebar__empty">Nenhum item encontrado :\</span>
       </div>
