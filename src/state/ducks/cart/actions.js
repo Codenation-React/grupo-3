@@ -1,8 +1,11 @@
 import * as types from './types';
 
-export const addToCart = (product) => ({
+export const addToCart = (code_color, sku) => ({
   type: types.ADD,
-  product,
+  product: {
+    code_color,
+    sku,
+  },
 });
 
 export const changeQuantity = (sku, changeType) => ({

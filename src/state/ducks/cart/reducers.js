@@ -13,6 +13,7 @@ import * as types from './types';
 
 function addToCart(state, action) {
   const { product } = action;
+  console.log(product);
   const index = state.findIndex((p) => p.sku === product.sku);
 
   if (index === -1) {
@@ -73,7 +74,7 @@ function changeQuantity(state, action) {
 }
 
 const cartReducer = (state = [], action) => {
-  switch (action.types) {
+  switch (action.type) {
     case types.ADD:
       return addToCart(state, action);
 

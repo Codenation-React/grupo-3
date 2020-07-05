@@ -16,7 +16,7 @@ const Details = () => {
   const params = useParams();
   const dispatch = useDispatch();
   const product = useSelector(({ products }) =>
-    getProduct(products, params.style)
+    getProduct(products, params.code_color)
   );
 
   useEffect(() => {

@@ -1,6 +1,6 @@
-export const getProduct = (state, style) => {
+export const getProduct = (state, code_color) => {
   return state.find((product) => {
-    return product.style === style;
+    return product.code_color === code_color;
   });
 };
 

@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { v1 as uuid } from 'uuid';
 
+import { addToCart } from '../../../state/ducks/cart/actions';
+
 const Controls = ({ product }) => {
+  const dispatch = useDispatch();
   const {
     sizes,
     regular_price,
@@ -11,7 +15,12 @@ const Controls = ({ product }) => {
     actual_price,
   } = product;
 
-  const [isSelected, setSelected] = useState('');
+  const [sizeSelected, setSizeSelected] = useState('');
+
+  function handleAddCart() {
+    const size = sizes.find((item) => item.size === sizeSelected);
+    dispatch(addToCart(product.code_color, size.sku));
+  }
 
   return (
     <div className="product__content">
@@ -39,11 +48,11 @@ const Controls = ({ product }) => {
                   <button
                     key={uuid()}
                     className={`product__filter ${
-                      isSelected === size.size
+                      sizeSelected === size.size
                         ? 'product__filter--selected'
                         : ''
                     }`}
-                    onClick={() => setSelected(size.size)}
+                    onClick={() => setSizeSelected(size.size)}
                   >
                     {size.size}
                   </button>
@@ -52,7 +61,9 @@ const Controls = ({ product }) => {
         </div>
       </div>
       <div className="product__actions">
-        <button className="product__add-to-cart">Adicionar à Sacola</button>
+        <button className="product__add-to-cart" onClick={handleAddCart}>
+          Adicionar à Sacola
+        </button>
       </div>
     </div>
   );
