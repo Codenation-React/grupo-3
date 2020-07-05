@@ -1,27 +1,22 @@
 import * as types from './types';
 
-export const addToCart = (product, quantity) => ({
+export const addToCart = (product) => ({
   type: types.ADD,
   product,
-  quantity,
 });
 
-export const changeQuantity = (product, quantity) => ({
+export const changeQuantity = (sku, changeType) => ({
   type: types.CHANGE_QUANTITY,
-  product,
-  quantity,
+  sku,
+  changeType,
 });
 
-export const removeFromCart = (index) => ({
+export const removeFromCart = (sku) => ({
   type: types.REMOVE,
-  index,
+  sku,
 });
 
-export const clearCart = () => ({
-  type: types.CLEAR,
-});
-
-export const setCart = (cart) => ({
-  type: types.SET_CART,
-  cart,
-});
+// export const setCart = (cart) => ({
+//   type: types.SET_CART,
+//   cart,
+// });
