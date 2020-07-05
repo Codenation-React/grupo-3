@@ -1,6 +1,6 @@
-import { combineReducers } from "redux";
-import * as types from "./types";
-import { createReducer } from "../../utils";
+import { combineReducers } from 'redux';
+import * as types from './types';
+import { createReducer } from '../../utils';
 
 /* State shape
 {

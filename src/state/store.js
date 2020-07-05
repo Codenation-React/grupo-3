@@ -1,16 +1,15 @@
 // @format
-import { createStore, applyMiddleware, combineReducers } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import thunkMiddleware from "redux-thunk";
+
 import * as reducers from "./ducks";
 import { apiService, createLogger } from "./middlewares";
 
-const configureStore = initialState => {
-  const rootReducer = combineReducers(reducers);
-
+const configureStore = (initialState) => {
   return createStore(
-    rootReducer,
+    reducers,
     initialState,
-    applyMiddleware(apiService, thunkMiddleware, createLogger(true)),
+    applyMiddleware(apiService, thunkMiddleware, createLogger(true))
   );
 };
 

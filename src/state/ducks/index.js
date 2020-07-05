@@ -1,2 +1,9 @@
-export { default as cart } from "./cart";
-export { default as product } from "./product";
+import { combineReducers } from 'redux';
+
+import cartReducer from './cart';
+import productReducer from './product';
+
+export default combineReducers({
+  cart: cartReducer,
+  products: productReducer,
+});
