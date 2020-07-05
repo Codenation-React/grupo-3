@@ -1,7 +1,2 @@
-import reducer from "./reducers";
-
-import * as productOperations from "./operations";
-
-export { productOperations };
-
-export default reducer;
+import productReducer from './productReducer';
+export default productReducer;

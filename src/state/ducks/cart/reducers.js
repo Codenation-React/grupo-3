@@ -1,7 +1,6 @@
 // @format
 import * as types from "./types";
 import * as utils from "./utils";
-import { createReducer } from "../../utils";
 
 /* State shape
 [
@@ -12,40 +11,55 @@ import { createReducer } from "../../utils";
 ]
 */
 
-const initialState = [];
+function addToCart(state, action) {
+  const { product, quantity } = action;
+  const index = utils.productPositionInCart(state, product);
 
-const cartReducer = createReducer(initialState)({
-  [types.ADD]: (state, action) => {
-    const { product, quantity } = action.payload;
+  if (index === -1) {
+    return [...state, utils.newCartItem(product, quantity)];
+  }
 
-    const index = utils.productPositionInCart(state, product);
+  const currentItem = state[index];
+  const updatedItem = {
+    ...currentItem,
+    quantity: currentItem.quantity + quantity,
+  };
+  return [...state.slice(0, index), updatedItem, ...state.slice(index + 1)];
+}
 
-    if (index === -1) {
-      return [utils.newCartItem(product, quantity), ...state];
-    }
+function changeQuantity(state, action) {
+  const { product, quantity } = action;
+  const index = utils.productPositionInCart(state, product);
 
-    const currentItem = state[index];
-    const updatedItem = Object.assign({}, currentItem, {
-      quantity: currentItem.quantity + quantity,
-    });
+  const currentItem = state[index];
+  const updatedItem = {
+    ...currentItem,
+    quantity,
+  };
+  return [...state.slice(0, index), updatedItem, ...state.slice(index + 1)];
+}
 
-    return [...state.slice(0, index), updatedItem, ...state.slice(index + 1)];
-  },
-  [types.CHANGE_QUANTITY]: (state, action) => {
-    const { product, quantity } = action.payload;
-    const index = utils.productPositionInCart(state, product);
+function removeFromCart(state, action) {
+  const { product } = action;
+  const index = utils.productPositionInCart(state, product);
 
-    const updatedItem = Object.assign({}, state[index], { quantity });
+  return [...state.slice(0, index), ...state.slice(index + 1)];
+}
 
-    return [...state.slice(0, index), updatedItem, ...state.slice(index + 1)];
-  },
-  [types.REMOVE]: (state, action) => {
-    const { product } = action.payload;
-    const index = utils.productPositionInCart(state, product);
+const cartReducer = (state = [], action) => {
+  switch (action.types) {
+    case types.ADD:
+      return addToCart(state, action);
 
-    return [...state.slice(0, index), ...state.slice(index + 1)];
-  },
-  [types.CLEAR]: () => [],
-});
+    case types.CHANGE_QUANTITY:
+      return changeQuantity();
+
+    case types.REMOVE:
+      return removeFromCart(state, action);
+
+    default:
+      return state;
+  }
+};
 
 export default cartReducer;

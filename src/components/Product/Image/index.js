@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProductImage = ({ children, ...rest }) => {
+const ProductImage = ({ ...rest }) => {
   const { image, altAttr, discount } = { ...rest };
 
   return (

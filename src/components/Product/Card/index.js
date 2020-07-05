@@ -4,7 +4,7 @@ import ProductImage from '../Image';
 
 import './styles.css';
 
-const ProductCard = ({ children, ...rest }) => {
+const ProductCard = ({ ...rest }) => {
   const {
     className,
     image,
