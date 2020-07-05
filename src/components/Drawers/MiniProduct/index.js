@@ -1,6 +1,6 @@
 // @format
-import React from "react";
-import "./styles.css";
+import React from 'react';
+import './styles.css';
 
 const MiniProduct = ({ product }) => {
   const {
@@ -16,7 +16,15 @@ const MiniProduct = ({ product }) => {
     <div className="product__list__item ">
       <div className="product__list__row">
         <figure className="product__image">
-          <img src={image} alt={name} />
+          {image ? (
+            <img src={image} alt={`Produto ${name}`} title={name} />
+          ) : (
+            <img
+              src="https://via.placeholder.com/470x594/FFFFFF/?text=Imagem+Indisponível"
+              alt={`Produto ${name}`}
+              title={name}
+            />
+          )}
         </figure>
         <div className="product__list__info">
           <p className="product__list__name">{name}</p>
