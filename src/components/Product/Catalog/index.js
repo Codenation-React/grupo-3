@@ -1,21 +1,20 @@
 // @format
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { v1 as uuid } from "uuid";
-import { productOperations } from "../../../state/ducks/product";
 
 import Card from "../Card";
+import { fetchProdutcs } from "../../../state/ducks/product/actions";
 
 import "./styles.css";
 
-const Catalog = props => {
-  const { products, fetchList } = props;
+const Catalog = () => {
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products);
 
   useEffect(() => {
-    if (products.length === 0) {
-      fetchList();
-    }
-  }, []);
+    dispatch(fetchProdutcs());
+  }, [dispatch]);
 
   return (
     <div className="container">
@@ -23,7 +22,7 @@ const Catalog = props => {
         <header className="products__quantity">{products.length} items</header>
 
         <div className="products__grid">
-          {products.map(product => (
+          {products.map((product) => (
             <Card className="products__box" key={uuid()} {...product} />
           ))}
         </div>
@@ -32,12 +31,4 @@ const Catalog = props => {
   );
 };
 
-const mapStateToProps = state => ({
-  products: state.product.list,
-});
-
-const mapDispatchToProps = {
-  fetchList: productOperations.fetchList,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Catalog);
+export default Catalog;
