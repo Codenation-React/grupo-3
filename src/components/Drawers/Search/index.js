@@ -10,7 +10,7 @@ import useDebounce from "../../../hooks/useDebounce";
 import "./styles.css";
 
 export default function SideBar({ closeDrawer }) {
-  const products = useSelector((state) => state.products);
+  const products = useSelector(state => state.products);
   const [searchText, setSearchText] = useState("");
   const [listedProducts, setListedProducts] = useState([]);
 
@@ -44,13 +44,13 @@ export default function SideBar({ closeDrawer }) {
           type="text"
           name="text-search"
           placeholder="Buscar por produto..."
-          onChange={(e) => setSearchText(e.target.value)}
+          onChange={e => setSearchText(e.target.value)}
         />
       </div>
       <div className="sidebar__product-list">
         {listedProducts.length > 0 ? (
-          listedProducts.map((product) => (
-            <Link key={uuid()} to={`/produto/${product.style}`}>
+          listedProducts.map(product => (
+            <Link key={uuid()} to={`/produto/${product.code_color}`}>
               <MiniProduct product={product} />
             </Link>
           ))
