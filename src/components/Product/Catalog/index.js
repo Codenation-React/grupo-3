@@ -10,10 +10,12 @@ import "./styles.css";
 
 const Catalog = () => {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.products);
+  const products = useSelector(state => state.products);
 
   useEffect(() => {
-    dispatch(fetchProdutcs());
+    if (products.length === 0) {
+      dispatch(fetchProdutcs());
+    }
   }, [dispatch]);
 
   return (
@@ -22,7 +24,7 @@ const Catalog = () => {
         <header className="products__quantity">{products.length} items</header>
 
         <div className="products__grid">
-          {products.map((product) => (
+          {products.map(product => (
             <Card className="products__box" key={uuid()} {...product} />
           ))}
         </div>
