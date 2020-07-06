@@ -7,7 +7,7 @@ import Details from "../components/Product/Details";
 const Routes = () => (
   <Switch>
     <Route exact path="/" children={<Catalog />} />
-    <Route path="/produto/:style" children={<Details />} />
+    <Route path="/produto/:code_color" children={<Details />} />
   </Switch>
 );
 

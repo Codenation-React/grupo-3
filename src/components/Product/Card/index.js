@@ -13,13 +13,13 @@ const ProductCard = ({ ...rest }) => {
     discount_percentage,
     regular_price,
     actual_price,
-    style,
+    code_color,
     showPrices = true,
   } = { ...rest };
 
   return (
-    <article className={className} key={style}>
-      <Link to={`/produto/${style}`}>
+    <article className={className} key={code_color}>
+      <Link to={`/produto/${code_color}`}>
         <ProductImage
           image={image}
           onSale={on_sale}
