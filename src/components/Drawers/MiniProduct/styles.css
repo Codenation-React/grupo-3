@@ -35,6 +35,17 @@
   color: #a7a7a7;
 }
 
+.product__list__quantity {
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+}
+
+.product__list__input {
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+}
+
 .search .product__list__pricing {
   width: 35%;
 }
@@ -55,4 +66,15 @@
 .product__list__installments {
   font-size: 1.2rem;
   color: #a7a7a7;
+}
+
+.cart__remove {
+  font-size: 1.2rem;
+  color: #cf3838;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  outline: none;
+  position: relative;  
 }
