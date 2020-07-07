@@ -1,5 +1,5 @@
 // @format
-import * as types from './types';
+import * as types from "./types";
 
 /* State shape
 [
@@ -13,8 +13,7 @@ import * as types from './types';
 
 function addToCart(state, action) {
   const { product } = action;
-  console.log(product);
-  const index = state.findIndex((p) => p.sku === product.sku);
+  const index = state.findIndex(p => p.sku === product.sku);
 
   if (index === -1) {
     return [...state, { ...product, quantity: 1 }];
@@ -35,7 +34,7 @@ function addToCart(state, action) {
 
 function removeFromCart(state, action) {
   const { sku } = action;
-  const index = state.findIndex((p) => p.sku === sku);
+  const index = state.findIndex(p => p.sku === sku);
 
   if (index !== -1) {
     return [...state.slice(0, index), ...state.slice(index + 1)];
@@ -46,7 +45,7 @@ function removeFromCart(state, action) {
 
 function changeQuantity(state, action) {
   const { sku, changeType } = action;
-  const index = state.findIndex((p) => p.sku === sku);
+  const index = state.findIndex(p => p.sku === sku);
 
   if (index !== -1) {
     const product = state[index];

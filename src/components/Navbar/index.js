@@ -1,16 +1,16 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import React from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import { getCartQuantity } from '../../state/ducks/cart/selectors';
+import { getCartQuantity } from "../../state/ducks/cart/selectors";
 
-import { ReactComponent as LogoSvg } from '../../assets/img/shop-logo.svg';
-import { ReactComponent as BagSvg } from '../../assets/img/shop-bag.svg';
-import { ReactComponent as SearchSvg } from '../../assets/img/search.svg';
-import './Navbar.css';
+import { ReactComponent as LogoSvg } from "../../assets/img/shop-logo.svg";
+import { ReactComponent as BagSvg } from "../../assets/img/shop-bag.svg";
+import { ReactComponent as SearchSvg } from "../../assets/img/search.svg";
+import "./Navbar.css";
 
 const Navbar = ({ searchDrawerClick, cartDrawerClick }) => {
-  const cartQuantity = useSelector((state) => getCartQuantity(state.cart));
+  const cartQuantity = useSelector(getCartQuantity);
 
   return (
     <header className="header">

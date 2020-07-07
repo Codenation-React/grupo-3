@@ -1,16 +1,39 @@
 // @format
-import React from 'react';
-import './styles.css';
+import React from "react";
+import "./styles.css";
+import { useDispatch } from "react-redux";
 
-const MiniProduct = ({ product }) => {
+import {
+  removeFromCart,
+  incrementQuantity,
+  decrementQuantity,
+} from "../../../state/ducks/cart/operations";
+
+const MiniProduct = ({ product, showCartControls = false }) => {
+  const dispatch = useDispatch();
   const {
     image,
     name,
     regular_price,
     actual_price,
     installments,
+    code_color,
     size,
+    sku,
+    quantity,
   } = product;
+
+  const handleIncrement = () => {
+    dispatch(incrementQuantity(sku));
+  };
+
+  const handleDecrement = () => {
+    dispatch(decrementQuantity(sku));
+  };
+
+  const handleRemove = () => {
+    dispatch(removeFromCart(sku));
+  };
 
   return (
     <div className="product__list__item ">
@@ -34,6 +57,20 @@ const MiniProduct = ({ product }) => {
           <div className="product__list__current">{actual_price}</div>
           <div className="product__list__installments">{installments}</div>
         </div>
+        {showCartControls && (
+          <div className="product__list_quantity">
+            <button onClick={() => handleDecrement()}>-</button>
+            <div className="product__list__input">{quantity}</div>
+            <button onClick={() => handleIncrement()}>+</button>
+          </div>
+        )}
+      </div>
+      <div className="product__row">
+        {showCartControls && (
+          <button className="cart__remove" onClick={() => handleRemove()}>
+            Remover Item
+          </button>
+        )}
       </div>
     </div>
   );

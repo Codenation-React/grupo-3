@@ -46,6 +46,11 @@ export default function SideBar({ closeDrawer }) {
           placeholder="Buscar por produto..."
           onChange={e => setSearchText(e.target.value)}
         />
+        {listedProducts.length > 0 ? (
+          <div> Resultados encontrados: {listedProducts.length}</div>
+        ) : (
+          undefined
+        )}
       </div>
       <div className="sidebar__product-list">
         {listedProducts.length > 0 ? (

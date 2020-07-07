@@ -1,17 +1,24 @@
 import * as types from './types';
 
-export const addToCart = (code_color, sku) => ({
+export const addToCart = (code_color, sku, size) => ({
   type: types.ADD,
   product: {
+    size,
     code_color,
     sku,
   },
 });
 
-export const changeQuantity = (sku, changeType) => ({
+export const decrementQuantity = (sku) => ({
   type: types.CHANGE_QUANTITY,
   sku,
-  changeType,
+  changeType: types.CART_DECREMENT,
+});
+
+export const incrementQuantity = (sku) => ({
+  type: types.CHANGE_QUANTITY,
+  sku,
+  changeType: types.CART_INCREMENT,
 });
 
 export const removeFromCart = (sku) => ({

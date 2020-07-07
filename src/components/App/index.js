@@ -14,25 +14,17 @@ const App = () => {
   const [isCartDrawerVisible, setIsCartDrawerVisible] = useState(false);
 
   const handleSearchDrawerClick = () => {
-    setIsSearchDrawerVisible((prevState) => !prevState);
-  };
-
-  const handleCloseSearchDrawer = () => {
-    setIsSearchDrawerVisible(false);
+    setIsSearchDrawerVisible(prevState => !prevState);
   };
 
   const handleCartDrawerClick = () => {
-    setIsCartDrawerVisible((prevState) => !prevState);
-  };
-
-  const handleCloseCartDrawer = () => {
-    setIsCartDrawerVisible(false);
+    setIsCartDrawerVisible(prevState => !prevState);
   };
 
   return (
     <Router>
       <div
-        className={`app ${isSearchDrawerVisible ? 'drawer-is-visible' : ''}`}
+        className={`app ${isSearchDrawerVisible ? "drawer-is-visible" : ""}`}
       >
         <Navbar
           searchDrawerClick={handleSearchDrawerClick}
@@ -40,9 +32,9 @@ const App = () => {
         />
         <Routes />
         {isSearchDrawerVisible && (
-          <Search closeDrawer={handleCloseSearchDrawer} />
+          <Search closeDrawer={handleSearchDrawerClick} />
         )}
-        {isCartDrawerVisible && <Cart closeDrawer={handleCloseCartDrawer} />}
+        {isCartDrawerVisible && <Cart closeDrawer={handleCartDrawerClick} />}
       </div>
     </Router>
   );

@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { v1 as uuid } from 'uuid';
+// @format
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { v1 as uuid } from "uuid";
 
-import { addToCart } from '../../../state/ducks/cart/actions';
+import { addToCart } from "../../../state/ducks/cart/operations";
 
 const Controls = ({ product }) => {
+  const [sizeSelectionError, setSizeSelectionError] = useState(false);
+
   const dispatch = useDispatch();
   const {
     sizes,
@@ -15,11 +18,17 @@ const Controls = ({ product }) => {
     actual_price,
   } = product;
 
-  const [sizeSelected, setSizeSelected] = useState('');
+  const [sizeSelected, setSizeSelected] = useState("");
 
   function handleAddCart() {
-    const size = sizes.find((item) => item.size === sizeSelected);
-    dispatch(addToCart(product.code_color, size.sku));
+    if (!sizeSelected) {
+      setSizeSelectionError(true);
+      return;
+    }
+
+    setSizeSelectionError(false);
+    const size = sizes.find(item => item.size === sizeSelected);
+    dispatch(addToCart(product.code_color, size.sku, size.size));
   }
 
   return (
@@ -40,23 +49,28 @@ const Controls = ({ product }) => {
       </div>
       <div className="product__sizes">
         <p className="product__sizes__title">Escolha o tamanho:</p>
+        {sizeSelectionError && (
+          <p className="product__sizes__warning">
+            É necessário escolher um tamanho
+          </p>
+        )}
         <div className="product__btn-group">
           {sizes &&
             sizes.map(
-              (size) =>
+              size =>
                 size.available && (
                   <button
                     key={uuid()}
                     className={`product__filter ${
                       sizeSelected === size.size
-                        ? 'product__filter--selected'
-                        : ''
+                        ? "product__filter--selected"
+                        : ""
                     }`}
                     onClick={() => setSizeSelected(size.size)}
                   >
                     {size.size}
                   </button>
-                )
+                ),
             )}
         </div>
       </div>

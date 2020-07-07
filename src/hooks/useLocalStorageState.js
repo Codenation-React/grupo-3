@@ -1,7 +1,7 @@
 // @format
 import { useEffect, useState } from "react";
 
-const useLocalStorageState = (key, defaultValue) => {
+const useLocalStorageState = (key = "@cart", defaultValue = []) => {
   // make pieceof state, based off value in localStorage (or default)
   const [state, setState] = useState(() => {
     let val;

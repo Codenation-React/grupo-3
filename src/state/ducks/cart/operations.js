@@ -1,15 +1,13 @@
 import {
   addToCart,
-  changeQuantity,
+  decrementQuantity,
+  incrementQuantity,
   removeFromCart,
-  clearCart,
-  setCart,
 } from "./actions";
 
 export {
   addToCart,
-  changeQuantity,
+  decrementQuantity,
+  incrementQuantity,
   removeFromCart,
-  clearCart,
-  setCart
 };
