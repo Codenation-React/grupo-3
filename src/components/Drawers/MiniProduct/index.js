@@ -51,19 +51,19 @@ const MiniProduct = ({ product, showCartControls = false }) => {
         </figure>
         <div className="product__list__info">
           <p className="product__list__name">{name}</p>
-          {size && <p className="product__list__size">{size}</p>}
-        </div>
-        <div className="product__list__pricing">
-          <div className="product__list__current">{actual_price}</div>
-          <div className="product__list__installments">{installments}</div>
-        </div>
-        {showCartControls && (
-          <div className="product__list_quantity">
+          {size && <p className="product__list__size">Tam.: {size}</p>}
+          {showCartControls && (
+          <div className="product__list__quantity">
             <button onClick={() => handleDecrement()}>-</button>
             <div className="product__list__input">{quantity}</div>
             <button onClick={() => handleIncrement()}>+</button>
           </div>
         )}
+        </div>
+        <div className="product__list__pricing">
+          <div className="product__list__current">{actual_price}</div>
+          <div className="product__list__installments">{installments}</div>
+        </div>
       </div>
       <div className="product__row">
         {showCartControls && (
