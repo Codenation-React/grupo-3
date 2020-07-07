@@ -1,17 +1,17 @@
-import { combineReducers } from 'redux';
 import * as types from './types';
-import { createReducer } from '../../utils';
 
-/* State shape
-{
-    list: [ product ],
-}
-*/
+// const INITIAL_STATE = {
+//   products: [],
+// };
 
-const listReducer = createReducer([])({
-  [types.FETCH_LIST_COMPLETED]: (state, action) => action.payload,
-});
+const productReducer = (state = [], action) => {
+  switch (action.type) {
+    case types.FETCH_LIST_COMPLETED:
+      return [...state, ...action.products];
 
-export default combineReducers({
-  list: listReducer,
-});
+    default:
+      return state;
+  }
+};
+
+export default productReducer;

@@ -1,4 +1,3 @@
-// // @format
-// import { fetchList } from "./actions";
+import { fetchProdutcs } from './actions';
 
-// export { fetchList };
+export { fetchProdutcs };
