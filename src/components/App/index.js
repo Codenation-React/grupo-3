@@ -24,7 +24,7 @@ const App = () => {
   return (
     <Router>
       <div
-        className={`app ${isSearchDrawerVisible ? "drawer-is-visible" : ""}`}
+        className={`app ${isSearchDrawerVisible || isCartDrawerVisible ? "drawer-is-visible" : ""}`}
       >
         <Navbar
           searchDrawerClick={handleSearchDrawerClick}
