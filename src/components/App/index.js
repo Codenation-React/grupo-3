@@ -32,7 +32,10 @@ const App = () => {
         />
         <Routes />
         {isSearchDrawerVisible && (
-          <Search closeDrawer={handleSearchDrawerClick} />
+          <Search
+            handleSearchDrawerClick={handleSearchDrawerClick}
+            closeDrawer={handleSearchDrawerClick}
+          />
         )}
         {isCartDrawerVisible && <Cart closeDrawer={handleCartDrawerClick} />}
       </div>
