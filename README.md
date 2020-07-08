@@ -10,7 +10,7 @@
 </h1>
 
 <p align="center">
-  <a href="https://brave-desert-026a18a10.azurestaticapps.net/"></a>
+  <a href="https://brave-desert-026a18a10.azurestaticapps.net/">View shop</a>
 </p>
 
 <hr />
