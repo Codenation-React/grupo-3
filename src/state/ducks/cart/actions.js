@@ -25,8 +25,3 @@ export const removeFromCart = (sku) => ({
   type: types.REMOVE,
   sku,
 });
-
-// export const setCart = (cart) => ({
-//   type: types.SET_CART,
-//   cart,
-// });

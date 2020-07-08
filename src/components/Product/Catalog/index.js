@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { v1 as uuid } from "uuid";
 
 import Card from "../Card";
-import { fetchProdutcs } from "../../../state/ducks/product/actions";
+import { fetchProdutcs } from "../../../state/ducks/product/operations";
 
 import "./styles.css";
 
@@ -16,7 +16,7 @@ const Catalog = () => {
     if (products.length === 0) {
       dispatch(fetchProdutcs());
     }
-  }, [dispatch]);
+  }, [dispatch, products]);
 
   return (
     <div className="container">

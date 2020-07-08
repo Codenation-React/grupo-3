@@ -1,2 +1,2 @@
-import productReducer from './productReducer';
+import productReducer from './reducers';
 export default productReducer;

@@ -8,7 +8,7 @@ import Card from "../Card";
 import Controls from "../Detail-Controls";
 
 import { getProduct } from "../../../state/ducks/product/selectors";
-import { fetchProdutcs } from "../../../state/ducks/product/actions";
+import { fetchProdutcs } from "../../../state/ducks/product/operations";
 
 import "./styles.css";
 
