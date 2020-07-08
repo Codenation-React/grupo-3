@@ -14,10 +14,8 @@ const MiniProduct = ({ product, showCartControls = false }) => {
   const {
     image,
     name,
-    regular_price,
     actual_price,
     installments,
-    code_color,
     size,
     sku,
     quantity,
