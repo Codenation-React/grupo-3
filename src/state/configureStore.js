@@ -6,13 +6,16 @@ import rootReducer from "./ducks/index";
 import createLogger from "./middlewares/logger";
 import { loadState, saveState } from "./localStorage";
 
-const loggerMiddleware = createLogger();
+const middleware = [thunkMiddleware];
+if (process.env.NODE_ENV !== "production") {
+  middleware.push(createLogger());
+}
 
 const configureStore = () => {
   const store = createStore(
     rootReducer,
     loadState(),
-    applyMiddleware(thunkMiddleware, loggerMiddleware),
+    applyMiddleware(...middleware)
   );
 
   store.subscribe(() => {
