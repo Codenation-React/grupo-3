@@ -118,8 +118,6 @@
   padding-top: .7rem;
   padding-bottom: .7rem;
   margin: 0 auto;
-  -webkit-transform: translate3d(calc(-50% - 30px),0,0);
-  transform: translate3d(calc(-50% - 30px),0,0);
 }
 
 @media screen and (min-width: 768px) {
