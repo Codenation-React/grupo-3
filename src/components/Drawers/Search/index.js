@@ -9,7 +9,7 @@ import useDebounce from "../../../hooks/useDebounce";
 
 import "./styles.css";
 
-export default function SideBar({ closeDrawer }) {
+export default function SideBar({ closeDrawer, handleSearchDrawerClick }) {
   const products = useSelector(state => state.products);
   const [searchText, setSearchText] = useState("");
   const [listedProducts, setListedProducts] = useState([]);
@@ -48,16 +48,16 @@ export default function SideBar({ closeDrawer }) {
         />
         {listedProducts.length > 0 ? (
           <div> Resultados encontrados: {listedProducts.length}</div>
-        ) : (
-          undefined
-        )}
+        ) : undefined}
       </div>
       <div className="sidebar__product-list">
         {listedProducts.length > 0 ? (
           listedProducts.map(product => (
-            <Link key={uuid()} to={`/produto/${product.code_color}`}>
-              <MiniProduct product={product} />
-            </Link>
+            <div onClick={handleSearchDrawerClick}>
+              <Link key={uuid()} to={`/produto/${product.code_color}`}>
+                <MiniProduct product={product} />
+              </Link>
+            </div>
           ))
         ) : (
           <span className="sidebar__empty">Nenhum item encontrado :\</span>
