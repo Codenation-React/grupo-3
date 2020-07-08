@@ -101,4 +101,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=flat-square
 [license-url]: ./LICENCE
 [project-url]: https://brave-desert-026a18a10.azurestaticapps.net/
-[product-screenshot]: ./images/screenshot.png
+[product-screenshot]: ./images/home-ecommerce.png
