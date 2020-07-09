@@ -70,7 +70,7 @@ yarn start
 ## Contributors
 
 - [Anderson Martins](https://www.linkedin.com/in/andersonomartins/)
-- Diego Rocha
+- [Diego Rocha](https://www.linkedin.com/in/dhsrocha/)
 - [Lorenzo Cesconetto](https://www.linkedin.com/in/lorenzo-cesconetto/)
 - [Vicente Santos](https://www.linkedin.com/in/vicente-santos-7b023390/)
 - [Vinicius Avansini](https://www.linkedin.com/in/viniciusavansini/)
@@ -96,9 +96,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=flat-square
+[contributors-shield]: https://img.shields.io/badge/contributors-5-brightgreen
 [contributors-url]: https://github.com/Codenation-React/grupo-3/graphs/contributors
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=flat-square
+[license-shield]: https://img.shields.io/github/license/Codenation-React/grupo-3
 [license-url]: ./LICENCE
 [project-url]: https://brave-desert-026a18a10.azurestaticapps.net/
 [product-screenshot]: ./images/home-ecommerce.png
